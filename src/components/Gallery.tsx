@@ -1,8 +1,8 @@
-import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { galleryPhotos } from '../data/weddingData';
-import type { GalleryPhoto } from '../types';
+import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { galleryPhotos } from "../data/weddingData";
+import type { GalleryPhoto } from "../types";
 
 /**
  * Prenup photo gallery — responsive grid with lightbox.
@@ -16,13 +16,13 @@ export function Gallery() {
 
   const goPrev = useCallback(() => {
     setLightboxIndex((i) =>
-      i === null ? null : (i - 1 + galleryPhotos.length) % galleryPhotos.length
+      i === null ? null : (i - 1 + galleryPhotos.length) % galleryPhotos.length,
     );
   }, []);
 
   const goNext = useCallback(() => {
     setLightboxIndex((i) =>
-      i === null ? null : (i + 1) % galleryPhotos.length
+      i === null ? null : (i + 1) % galleryPhotos.length,
     );
   }, []);
 
@@ -31,29 +31,34 @@ export function Gallery() {
     if (lightboxIndex === null) return;
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') goPrev();
-      if (e.key === 'ArrowRight') goNext();
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
     };
 
-    window.addEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
     // Prevent body scroll while open
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
     return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
     };
   }, [lightboxIndex, goPrev, goNext]);
 
   return (
-    <section id="gallery" className="relative py-14 sm:py-20 paper-texture overflow-hidden">
+    <section
+      id="gallery"
+      className="relative py-14 sm:py-20 paper-texture overflow-hidden"
+    >
       {/* Faint 囍 watermark */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.03] select-none"
         aria-hidden="true"
       >
-        <span className="font-display text-[200px] text-imperial-red leading-none">囍</span>
+        <span className="font-display text-[200px] text-imperial-red leading-none">
+          囍
+        </span>
       </div>
 
       {/* Section header */}
@@ -66,7 +71,7 @@ export function Gallery() {
         </h2>
         <div className="mt-4 mx-auto h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent" />
         <p className="mt-4 text-sm text-ink-muted max-w-md mx-auto">
-          Mga sandaling puno ng pag-ibig bago ang aming espesyal na araw
+          Little Moments of Love Before Our Forever Begins.
         </p>
       </div>
 
@@ -119,15 +124,15 @@ function GalleryTile({
       type="button"
       onClick={onOpen}
       className={`group relative aspect-[4/5] overflow-hidden rounded-md border-2 border-gold/50 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 ${
-        index % 3 === 1 ? 'md:translate-y-4' : ''
+        index % 3 === 1 ? "md:translate-y-4" : ""
       }`}
       style={{
         boxShadow:
-          '0 0 0 1px rgba(255,215,0,0.25), 0 6px 20px rgba(200,16,46,0.1)',
+          "0 0 0 1px rgba(255,215,0,0.25), 0 6px 20px rgba(200,16,46,0.1)",
       }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
       aria-label={`View photo: ${photo.alt}`}
     >

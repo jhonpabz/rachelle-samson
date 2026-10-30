@@ -23,15 +23,20 @@ export const couple = {
 };
 
 export const welcomeMessage = {
-  title: "Mahal naming mga bisita",
-  body: `Sa araw na ito ng pag-ibig at pagdiriwang, iniimbitahan namin kayo upang saksihan ang aming paglalakbay bilang mag-asawa.
+  title: "To Our Dearest Guests,",
+  body: `With hearts full of love and gratitude, we cordially invite you to witness the union of two hearts as we begin our forever together.
 
-Tulad ng bagong taon sa kalendaryong Tsino na nagdadala ng kasaganaan at pag-asa, ganoon din ang aming pagsasama — puno ng pagmamahal, respeto, at magandang hangarin.
+As the Lunar New Year ushers in prosperity, abundance, and renewed hope, may our marriage likewise blossom into a lifetime of love, harmony, respect, and countless blessings.
 
-Salamat sa pagiging bahagi ng aming kuwento.`,
-  poem: `"Sa gitna ng pula at ginto,
-   dalawang puso'y nagsasama
-   sa ilalim ng langit na puno ng pag-asa."`,
+May this celebration mark not only the beginning of our life as husband and wife but also the beautiful unfolding of a love story destined to last a lifetime.
+
+Thank you for being a treasured part of our journey. Your presence and blessings will make this cherished occasion all the more extraordinary.
+
+With love and gratitude,
+The Bride and Groom`,
+  poem: `“Amidst the hues of red and gold,
+two hearts unite as one,
+beneath a sky filled with hope and promise.”`,
 };
 
 export const banners: BannerImage[] = [
@@ -186,8 +191,7 @@ export const dressCode = {
     { name: "Luminous Gold", hex: "#FFD700" },
     { name: "Deep Crimson", hex: "#8B0000" },
   ] as ColorSwatch[],
-  avoidNote:
-    "To complement the vibrant and joyful spirit of the celebration, female guests are kindly requested to refrain from wearing plain black or all-white attire and are encouraged to wear red or red with a touch of gold. Male guests are kindly requested to refrain from wearing red, as this color is reserved for the groom.",
+  avoidNote: `To complement the vibrant and joyful spirit of the celebration, female guests are kindly requested to refrain from wearing plain black or all-white attire and are encouraged to wear red or red with a touch of gold. Male guests are kindly requested to refrain from wearing red, as this color is reserved for the groom. ( We encourage everyone to embrace colors that reflect the beauty, warmth, and festive elegance of this special occasion.)`,
 };
 
 export const giftGuide = {
