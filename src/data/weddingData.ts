@@ -181,7 +181,7 @@ export const dressCode = {
   theme:
     "Chinese Formal · Modern Cheongsam / Hanfu accents · Barong · Evening Gown",
   description:
-    "Inaanyayahan naming magsuot ang mga panauhin ng eleganteng pormal na kasuotan na may inspirasyon sa tradisyonal na Tsino at Filipino formal wear. Pumili ng mga kulay na nagpapakita ng kasaganaan at saya.",
+    "We kindly invite our guests to adorn themselves in elegant formal attire inspired by traditional Chinese and Filipino fashion. We encourage colors that symbolize prosperity, joy, and good fortune, in keeping with the spirit of our celebration.",
   colors: [
     { name: "Imperial Red", hex: "#C8102E" },
     { name: "Luminous Gold", hex: "#FFD700" },
@@ -189,7 +189,7 @@ export const dressCode = {
     { name: "Warm Cream", hex: "#FFFDF7" },
   ] as ColorSwatch[],
   avoidNote:
-    "Mangyaring iwasan ang plain black o plain white attire upang mapanatili ang masaya at makulay na diwa ng pagdiriwang.",
+    "To complement the vibrant and joyful spirit of the celebration, female guests are kindly requested to refrain from wearing plain black or all-white attire and are encouraged to wear red or red with a touch of gold. Male guests are kindly requested to refrain from wearing red, as this color is reserved for the groom.",
 };
 
 export const giftGuide = {
