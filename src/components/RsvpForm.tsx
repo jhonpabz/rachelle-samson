@@ -1,16 +1,16 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Send } from 'lucide-react';
-import type { RsvpFormData, RsvpFormErrors, AttendanceStatus } from '../types';
-import { SectionCard } from './SectionCard';
-import { rsvpCopy } from '../data/weddingData';
+import { useState, type FormEvent, type ChangeEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, Send } from "lucide-react";
+import type { RsvpFormData, RsvpFormErrors, AttendanceStatus } from "../types";
+import { SectionCard } from "./SectionCard";
+import { rsvpCopy } from "../data/weddingData";
 
 const initialForm: RsvpFormData = {
-  fullName: '',
-  email: '',
-  attendance: '',
+  fullName: "",
+  email: "",
+  attendance: "",
   noPlusOne: false,
-  message: '',
+  message: "",
 };
 
 export function RsvpForm() {
@@ -23,21 +23,21 @@ export function RsvpForm() {
     const next: RsvpFormErrors = {};
 
     if (!form.fullName.trim()) {
-      next.fullName = 'Kinakailangan ang iyong pangalan.';
+      next.fullName = "Kinakailangan ang iyong pangalan.";
     }
 
     if (!form.email.trim()) {
-      next.email = 'Kinakailangan ang email address.';
+      next.email = "Kinakailangan ang email address.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      next.email = 'Maglagay ng wastong email address.';
+      next.email = "Maglagay ng wastong email address.";
     }
 
     if (!form.attendance) {
-      next.attendance = 'Piliin kung makakadalo ka.';
+      next.attendance = "Piliin kung makakadalo ka.";
     }
 
     if (!form.noPlusOne) {
-      next.noPlusOne = 'Kinakailangan ang pagsang-ayon sa patakaran.';
+      next.noPlusOne = "Kinakailangan ang pagsang-ayon sa patakaran.";
     }
 
     setErrors(next);
@@ -45,14 +45,14 @@ export function RsvpForm() {
   };
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
 
     setForm((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
 
     if (errors[name as keyof RsvpFormErrors]) {
@@ -84,14 +84,17 @@ export function RsvpForm() {
     // Simulate network request – replace with real API / Formspree endpoint
     await new Promise((r) => setTimeout(r, 1200));
 
-    console.log('RSVP submitted:', form);
+    console.log("RSVP submitted:", form);
 
     setIsSubmitting(false);
     setSubmitted(true);
   };
 
   return (
-    <div id="rsvp" className="relative py-16 sm:py-24 paper-texture overflow-hidden">
+    <div
+      id="rsvp"
+      className="relative py-16 sm:py-24 paper-texture overflow-hidden"
+    >
       {/* Soft decorative 囍 */}
       <div
         className="pointer-events-none absolute top-8 right-6 opacity-[0.04] select-none hidden sm:block"
@@ -108,7 +111,9 @@ export function RsvpForm() {
           <h2 className="font-display text-2xl sm:text-3xl text-imperial-red">
             {rsvpCopy.sectionTitle}
           </h2>
-          <p className="mt-2 text-sm text-ink-muted">{rsvpCopy.sectionSubtitle}</p>
+          <p className="mt-2 text-sm text-ink-muted">
+            {rsvpCopy.sectionSubtitle}
+          </p>
           <div className="mt-4 mx-auto h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent" />
         </header>
 
@@ -154,7 +159,7 @@ export function RsvpForm() {
                   htmlFor="fullName"
                   className="block text-sm font-medium text-ink mb-1.5"
                 >
-                  Ang Iyong Pangalan{' '}
+                  Ang Iyong Pangalan{" "}
                   <span className="text-imperial-red">*</span>
                 </label>
                 <input
@@ -167,14 +172,12 @@ export function RsvpForm() {
                   aria-required="true"
                   aria-invalid={!!errors.fullName}
                   aria-describedby={
-                    errors.fullName ? 'fullName-error' : undefined
+                    errors.fullName ? "fullName-error" : undefined
                   }
                   className={`w-full rounded-lg border px-4 py-2.5 text-ink bg-white/80 focus:outline-none focus:ring-2 focus:ring-gold/60 transition ${
-                    errors.fullName
-                      ? 'border-imperial-red'
-                      : 'border-gold/40'
+                    errors.fullName ? "border-imperial-red" : "border-gold/40"
                   }`}
-                  placeholder="Juan Dela Cruz"
+                  placeholder="Samson Pacatang"
                 />
                 {errors.fullName && (
                   <p
@@ -204,9 +207,9 @@ export function RsvpForm() {
                   autoComplete="email"
                   aria-required="true"
                   aria-invalid={!!errors.email}
-                  aria-describedby={errors.email ? 'email-error' : undefined}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                   className={`w-full rounded-lg border px-4 py-2.5 text-ink bg-white/80 focus:outline-none focus:ring-2 focus:ring-gold/60 transition ${
-                    errors.email ? 'border-imperial-red' : 'border-gold/40'
+                    errors.email ? "border-imperial-red" : "border-gold/40"
                   }`}
                   placeholder="you@example.com"
                 />
@@ -224,8 +227,7 @@ export function RsvpForm() {
               {/* Attendance */}
               <fieldset className="mb-5">
                 <legend className="block text-sm font-medium text-ink mb-2">
-                  Makakadalo ka ba?{' '}
-                  <span className="text-imperial-red">*</span>
+                  Makakadalo ka ba? <span className="text-imperial-red">*</span>
                 </legend>
                 <div
                   className="flex flex-col gap-2.5"
@@ -234,12 +236,12 @@ export function RsvpForm() {
                 >
                   {[
                     {
-                      value: 'yes' as const,
-                      label: 'Oo, makikiisa ako sa pagdiriwang',
+                      value: "yes" as const,
+                      label: "Oo, makikiisa ako sa pagdiriwang",
                     },
                     {
-                      value: 'no' as const,
-                      label: 'Hindi ako makakadalo',
+                      value: "no" as const,
+                      label: "Hindi ako makakadalo",
                     },
                   ].map((opt) => (
                     <button
@@ -250,8 +252,8 @@ export function RsvpForm() {
                       onClick={() => handleAttendance(opt.value)}
                       className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all ${
                         form.attendance === opt.value
-                          ? 'border-imperial-red bg-imperial-red/10 text-imperial-red font-medium ring-1 ring-imperial-red/30'
-                          : 'border-gold/40 bg-white/60 text-ink-muted hover:border-gold/70'
+                          ? "border-imperial-red bg-imperial-red/10 text-imperial-red font-medium ring-1 ring-imperial-red/30"
+                          : "border-gold/40 bg-white/60 text-ink-muted hover:border-gold/70"
                       }`}
                     >
                       {opt.label}
@@ -289,7 +291,7 @@ export function RsvpForm() {
                     className="mt-1 w-4 h-4 rounded border-gold/60 text-imperial-red focus:ring-gold/60 accent-imperial-red"
                   />
                   <span className="text-sm text-ink group-hover:text-imperial-red transition-colors">
-                    Sumasangayon ako{' '}
+                    Sumasangayon ako{" "}
                     <span className="text-imperial-red">*</span>
                   </span>
                 </label>
