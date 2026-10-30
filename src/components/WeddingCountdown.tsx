@@ -31,15 +31,38 @@ export function WeddingCountdown() {
 
   return (
     <section id="countdown" aria-labelledby="countdown-heading" className="relative overflow-hidden paper-texture px-4 py-16 sm:py-24">
-      <CloudMotif className="absolute -left-12 top-28 w-52 text-imperial-red/5" />
-      <CloudMotif className="absolute -right-12 bottom-20 w-52 text-imperial-red/5" />
+      <CloudMotif className="countdown-cloud absolute -left-12 top-28 w-52 text-imperial-red" opacity={0.1} />
+      <CloudMotif className="countdown-cloud countdown-cloud-delayed absolute -right-12 bottom-20 w-52 text-gold-dark" opacity={0.18} />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        {Array.from({ length: 10 }, (_, index) => (
+          <svg
+            key={index}
+            viewBox="0 0 24 32"
+            className="countdown-petal absolute h-7 w-5"
+            style={{
+              left: `${index % 2 === 0 ? 2 + index * 1.6 : 84 + index * 1.2}%`,
+              top: `${8 + (index * 9) % 75}%`,
+              color: index % 3 === 0 ? '#C8102E' : '#D4AF37',
+              animationDelay: `${-index * 1.7}s`,
+              animationDuration: `${9 + index % 4}s`,
+            }}
+          >
+            <path d="M12 2C24 10 23 23 6 30 0 18 2 8 12 2Z" fill="currentColor" fillOpacity="0.35" />
+            <path d="M7 26 14 9" fill="none" stroke="currentColor" strokeOpacity="0.5" />
+          </svg>
+        ))}
+      </div>
       <div className="relative mx-auto max-w-2xl border border-gold-dark/40 p-2">
         <div className="relative border border-gold-dark/25 px-3 py-12 text-center sm:px-10 sm:py-16">
           {(['tl', 'tr', 'bl', 'br'] as const).map((position) => (
             <CornerLattice key={position} position={position} className="text-gold-dark" size={36} />
           ))}
-          <Lantern className="absolute top-4 left-4 sm:left-8" size={30} sway={false} />
-          <Lantern className="absolute top-4 right-4 sm:right-8" size={30} sway={false} />
+          <div className="countdown-lantern pointer-events-none absolute top-4 left-4 sm:left-8" aria-hidden="true">
+            <Lantern size={38} sway={false} />
+          </div>
+          <div className="countdown-lantern countdown-lantern-delayed pointer-events-none absolute top-4 right-4 sm:right-8" aria-hidden="true">
+            <Lantern size={38} sway={false} />
+          </div>
           <div aria-hidden="true" className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-gold-dark/50 bg-imperial-red text-4xl text-gold shadow-sm">囍</div>
           <h2 id="countdown-heading" className="font-display text-3xl sm:text-4xl text-imperial-red italic">
             {remaining > 0 ? 'We Only Have' : 'Our Forever Begins'}

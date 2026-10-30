@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Gentle vector motion framing the wedding countdown. */
+.countdown-lantern {
+  transform-origin: top center;
+  animation: countdown-sway 5s ease-in-out infinite;
+}
+.countdown-lantern-delayed { animation-delay: -2.5s; }
+.countdown-cloud { animation: countdown-drift 14s ease-in-out infinite; }
+.countdown-cloud-delayed { animation-delay: -7s; }
+.countdown-petal { animation: countdown-float 10s ease-in-out infinite; }
+
+@keyframes countdown-sway {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes countdown-drift {
+  0%, 100% { transform: translate(-12px, 0); }
+  50% { transform: translate(18px, -10px); }
+}
+@keyframes countdown-float {
+  0%, 100% { transform: translate(0, -14px) rotate(-20deg); opacity: 0.45; }
+  50% { transform: translate(12px, 22px) rotate(35deg); opacity: 0.85; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .countdown-lantern, .countdown-cloud, .countdown-petal { animation: none; }
+}
+
 /* Custom theme tokens — Chinese New Year / Imperial aesthetic */
 @theme {
   --color-imperial-red: #c8102e;
