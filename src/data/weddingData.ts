@@ -19,6 +19,7 @@ export const couple = {
   tagline: "Two Hearts, One Love. One Beautiful New Beginning.",
   date: "06 February 2027",
   dateEnglish: "February 06, 2027",
+  ceremonyStartsAt: "2027-02-06T08:30:00+08:00",
   dayOfWeek: "Saturday",
 };
 

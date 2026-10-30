@@ -9,7 +9,7 @@ import { Timeline } from './components/Timeline';
 import { Entourage } from './components/Entourage';
 import { DressCode } from './components/DressCode';
 import { GiftGuide } from './components/GiftGuide';
-import { RsvpForm } from './components/RsvpForm';
+import { WeddingCountdown } from './components/WeddingCountdown';
 import { Footer } from './components/Footer';
 import { banners } from './data/weddingData';
 
@@ -67,8 +67,8 @@ export default function App() {
             {/* 10. Gift Guide / Reminders */}
             <GiftGuide />
 
-            {/* 11. RSVP Form Container */}
-            <RsvpForm />
+            {/* 11. Countdown to the wedding */}
+            <WeddingCountdown />
           </main>
 
           <Footer />
