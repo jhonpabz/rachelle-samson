@@ -117,26 +117,25 @@ export const galleryPhotos: GalleryPhoto[] = [
 export const timeline: TimelineItem[] = [
   {
     id: "assembly",
-    time: "2:00 PM",
-    title: "Assembly Time",
+    time: "7:30 AM",
+    title: "The Gathering of Guests",
     description:
-      "Pagtitipon ng mga panauhin sa loob ng simbahan. Mangyaring dumating nang maaga upang makapagpahinga at makapaghanda.",
+      "A warm welcome as we prepare for this beautiful celebration of love.",
     icon: "assembly",
   },
   {
     id: "ceremony",
-    time: "3:00 PM",
-    title: "Holy Ceremony",
+    time: "8:30 AM",
+    title: "The Sacred Union",
     description:
-      "Sagradong kasal sa St. Joseph Parish Church, Parañaque City. Pagsasama sa harap ng Diyos at mga minamahal.",
+      "Holy Matrimony at P-Silangan Poblacion Tubod Surigao del Norte",
     icon: "ceremony",
   },
   {
     id: "reception",
-    time: "6:00 PM",
-    title: "Reception & Dinner",
-    description:
-      "Pagdiriwang, hapunan, at saya sa The Grand Pavilion, Manila. Mga kuwento, saya, at pasasalamat sa lahat.",
+    time: "12 NN",
+    title: "Celebration Reception",
+    description: "",
     icon: "reception",
   },
 ];
@@ -194,13 +193,8 @@ export const dressCode = {
 export const giftGuide = {
   title: "Gift Guide & Reminders",
   angbaoNote:
-    "Sa tradisyong Tsino, ang red packet (Angbao / Hongbao) ay simbolo ng magandang hangarin at kasaganaan. Kung nais ninyong magbigay, ang monetary gift sa red envelope ay lubos naming pinahahalagahan.",
-  reminders: [
-    "Ang paanyaya ay personal at limitado sa nakapangalan na panauhin.",
-    "Walang plus-one upang mapanatiling intimate ang selebrasyon.",
-    "Mangyaring kumpirmahin ang inyong attendance sa pamamagitan ng RSVP form sa ibaba.",
-    "Para sa mga katanungan, maaring makipag-ugnayan sa amin sa pamamagitan ng email.",
-  ],
+    "In Chinese tradition, the red envelope (Angbao/Hongbao) symbolizes love, good fortune, and blessings for a prosperous future. As we begin this beautiful new chapter together, should you wish to give us a gift, a monetary gift in a red envelope or you may scanned the QR code below for our bank details, would be lovingly appreciated. Your presence and blessings on our special day mean the world to us.",
+  reminders: [],
 };
 
 export const rsvpCopy = {
