@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" viewBox="0 0 120 60" fill="none">
+  <!-- Traditional Xiangyun cloud motif -->
+  <path d="M10 35
+    C10 25, 20 18, 32 20
+    C36 12, 50 10, 58 18
+    C66 10, 82 12, 88 22
+    C100 18, 112 26, 110 38
+    C112 48, 100 52, 88 48
+    C82 56, 66 54, 58 46
+    C50 54, 36 52, 30 44
+    C20 48, 10 44, 10 35Z"
+    fill="#FFD700" fill-opacity="0.12" stroke="#FFD700" stroke-opacity="0.25" stroke-width="0.8"/>
+  <path d="M25 38
+    C28 32, 38 30, 44 34
+    C48 28, 58 28, 62 34
+    C68 30, 78 34, 76 42
+    C78 48, 68 50, 62 46
+    C58 50, 48 50, 44 44
+    C38 48, 28 46, 25 38Z"
+    fill="#C8102E" fill-opacity="0.06"/>
+</svg>

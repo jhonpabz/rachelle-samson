@@ -1,0 +1,585 @@
+@import "tailwindcss";
+
+/* Custom theme tokens — Chinese New Year / Imperial aesthetic */
+@theme {
+  --color-imperial-red: #c8102e;
+  --color-imperial-red-dark: #8b0000;
+  --color-imperial-red-light: #e0153a;
+  --color-gold: #ffd700;
+  --color-gold-dark: #d4af37;
+  --color-gold-light: #ffe55c;
+  --color-cream: #fffdf7;
+  --color-porcelain: #fffdf7;
+  --color-porcelain-dark: #f5f0e8;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #4a4a4a;
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Parchment / paper texture (cream sections) ─── */
+.paper-texture {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(200, 16, 46, 0.035) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(255, 215, 0, 0.04) 0%,
+      transparent 45%
+    ),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8102E' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ─── Red section utility ─── */
+.red-section {
+  position: relative;
+  color: #fffdf7;
+}
+
+/* ─── Traditional Chinese cloud (Xiangyun) repeating pattern ─── */
+.cloud-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80' viewBox='0 0 160 80'%3E%3Cpath d='M12 42 C12 30 24 20 40 22 C46 12 64 10 74 20 C84 10 104 12 112 24 C128 18 148 28 146 42 C148 54 128 60 112 54 C104 64 84 62 74 52 C64 62 46 60 38 50 C24 56 12 52 12 42Z' fill='%23FFD700' fill-opacity='0.08'/%3E%3Cpath d='M30 44 C34 36 46 34 54 40 C58 32 72 32 78 40 C86 34 100 40 98 50 C100 58 86 62 78 56 C72 62 58 62 54 54 C46 60 34 56 30 44Z' fill='%23FFD700' fill-opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 160px 80px;
+  background-repeat: repeat;
+}
+
+/* ─── Subtle silk fabric texture (optional overlay) ─── */
+.silk-texture {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 215, 0, 0.015) 2px,
+      rgba(255, 215, 0, 0.015) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(200, 16, 46, 0.01) 2px,
+      rgba(200, 16, 46, 0.01) 4px
+    );
+}
+
+/* Gold border utility */
+.gold-border {
+  border: 2px solid var(--color-gold);
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.3),
+    0 4px 20px rgba(200, 16, 46, 0.08),
+    inset 0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-porcelain-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-imperial-red);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-imperial-red-dark);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(200, 16, 46, 0.2);
+  color: var(--color-ink);
+}
+
+/* Smooth section transitions */
+section {
+  transition: background-color 0.4s ease;
+}
+
+/* Folded red paper invitation, inspired by a traditional sealed letter. */
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 48px 24px 64px;
+  color: #852b27;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #fffcf2 0%,
+    #f8edda 65%,
+    #eee0c5 100%
+  );
+  isolation: isolate;
+}
+.envelope-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23b6a182' opacity='.3' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.envelope-frame {
+  position: absolute;
+  inset: 20px;
+  border: 1px solid #b18a4b45;
+  pointer-events: none;
+}
+.envelope-frame::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid #b18a4b25;
+}
+.envelope-intro {
+  position: relative;
+  width: min(100%, 600px);
+  text-align: center;
+  z-index: 2;
+}
+.envelope-eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #9c7747;
+  margin: 0 0 20px;
+}
+.envelope-eyebrow span {
+  margin: 0 8px;
+}
+.envelope-intro h1 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: clamp(52px, 8vw, 78px);
+  line-height: 0.99;
+}
+.envelope-intro h1 em {
+  font-style: normal;
+}
+.envelope-subtitle {
+  color: #a08263;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  margin-top: 18px;
+  font-style: italic;
+}
+.envelope-stage {
+  position: relative;
+  width: min(78vw, 430px);
+  margin: 65px auto 48px;
+  perspective: 1400px;
+}
+.letter-envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.52;
+  border: 0;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  perspective: 1400px;
+  filter: drop-shadow(0 22px 18px #5f231c30);
+  -webkit-tap-highlight-color: transparent;
+}
+.letter-envelope:focus-visible {
+  outline: 2px solid #a37736;
+  outline-offset: 12px;
+}
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #862321, #5c1617);
+  border: 1px solid #bd664c;
+}
+.envelope-letter {
+  position: absolute;
+  inset: 6% 5% 3%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #d0ad6b;
+  background: #fff7e7;
+  box-shadow:
+    inset 0 0 0 8px #fff7e7,
+    inset 0 0 0 9px #d0ad6b70;
+  color: #87302b;
+}
+.letter-symbol {
+  font-family: serif;
+  font-size: 36px;
+  color: #a77e38;
+}
+.letter-kicker {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.letter-names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(26px, 5vw, 42px);
+  line-height: 1.2;
+}
+.letter-names i {
+  font-size: 0.7em;
+  color: #a77e38;
+  margin: 0 8px;
+}
+.letter-date {
+  font-family: Georgia, serif;
+  font-size: 11px;
+}
+.envelope-fold {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.envelope-fold-left {
+  clip-path: polygon(0 0, 57% 58%, 0 100%);
+  background: linear-gradient(115deg, #b6463e, #922825);
+}
+.envelope-fold-right {
+  clip-path: polygon(100% 0, 43% 58%, 100% 100%);
+  background: linear-gradient(240deg, #ae3c35, #852321);
+}
+.envelope-fold-bottom {
+  clip-path: polygon(0 100%, 0 98%, 50% 44%, 100% 98%, 100% 100%);
+  background: linear-gradient(0deg, #a3322d, #b64b3f);
+}
+.envelope-fold-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #dfb57380;
+  clip-path: polygon(0 98%, 50% 44%, 100% 98%, 50% 44.5%);
+}
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64%;
+  z-index: 4;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+}
+.envelope-flap > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(155deg, #ce6251, #a3352e 65%, #8c2523);
+}
+.envelope-flap > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 50% 100%, 100% 0, 50% 98%);
+  background: #e2bd7b;
+}
+.is-opening .envelope-flap {
+  z-index: 0;
+  transition: z-index 0s 0.65s;
+}
+.envelope-seal {
+  position: absolute;
+  left: 50%;
+  top: 63%;
+  translate: -50% -50%;
+  width: 62px;
+  height: 62px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  border-radius: 48% 51% 45% 49%;
+  background: linear-gradient(135deg, #f1d69b, #ae7834 55%, #dec189);
+  border: 2px solid #d8b777;
+  box-shadow:
+    0 3px 5px #51171555,
+    inset 0 0 0 3px #a7783c,
+    inset 0 0 0 5px #dfbd7c;
+}
+.envelope-seal span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #92602e80;
+  border-radius: 50%;
+  font-family: serif;
+  font-size: 29px;
+  color: #855322;
+  text-shadow: 0 1px #ffe7b4;
+}
+.envelope-inscription {
+  position: absolute;
+  bottom: 7%;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  color: #ebce93;
+  font-family: serif;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+}
+.envelope-inscription span {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--font-body);
+  font-size: 6px;
+  letter-spacing: 0.25em;
+}
+.envelope-fan {
+  position: absolute;
+  width: 180px;
+  height: 190px;
+  background: repeating-conic-gradient(
+    from -65deg at 50% 100%,
+    #b79652 0deg 5deg,
+    #e2cb91 5deg 10deg,
+    #a98c4e 10deg 11deg
+  );
+  clip-path: polygon(
+    0 20%,
+    12% 8%,
+    30% 0,
+    50% 2%,
+    72% 8%,
+    88% 18%,
+    100% 32%,
+    50% 100%
+  );
+  opacity: 0.85;
+}
+.envelope-fan-left {
+  bottom: -11px;
+  left: -42px;
+  transform: rotate(-65deg);
+  transform-origin: 50% 100%;
+  animation: fan-sway 1s ease-in-out infinite alternate;
+}
+.envelope-fan-right {
+  top: -130px;
+  right: -40px;
+  transform: rotate(110deg);
+  transform-origin: 50% 100%;
+  animation: fan-sway 1s ease-in-out infinite alternate-reverse;
+  animation-delay: -2s;
+}
+.envelope-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-width: 242px;
+  padding: 11px 24px;
+  border: 1px solid #a8774280;
+  background: #f5e6cc80;
+  color: #8d3a2d;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    box-shadow 0.25s;
+}
+.envelope-open-button:hover {
+  background: #eddbbb;
+  box-shadow: 0 4px 16px #9b744520;
+}
+.envelope-open-button:disabled {
+  cursor: default;
+}
+.envelope-open-button span {
+  color: #b58c48;
+  font-style: normal;
+}
+.envelope-hint {
+  margin-top: 15px;
+  color: #9a8061;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.envelope-footer {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #997a50;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.envelope-footer span {
+  font-size: 6px;
+  margin: 0 12px;
+}
+.envelope-lantern {
+  position: absolute;
+  top: -30px;
+  width: 75px;
+  pointer-events: none;
+  transform-origin: top center;
+  animation: lantern-sway 7s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+.envelope-lantern img {
+  width: 100%;
+  height: auto;
+}
+.envelope-lantern-left {
+  left: max(6%, calc(50% - 410px));
+}
+.envelope-lantern-right {
+  right: max(6%, calc(50% - 410px));
+  top: -75px;
+  width: 60px;
+  animation-delay: -3s;
+}
+.envelope-cloud {
+  position: absolute;
+  width: 210px;
+  opacity: 0.25;
+  pointer-events: none;
+  animation: cloud-drift 10s ease-in-out infinite alternate;
+}
+.envelope-cloud-left {
+  left: -50px;
+  bottom: 19%;
+}
+.envelope-cloud-right {
+  right: -50px;
+  top: 37%;
+  animation-delay: -5s;
+  transform: rotate(180deg);
+}
+@keyframes lantern-sway {
+  from {
+    rotate: -6deg;
+  }
+  to {
+    rotate: 6deg;
+  }
+}
+@keyframes cloud-drift {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 25px -12px;
+  }
+}
+@keyframes fan-sway {
+  from {
+    rotate: -4deg;
+    translate: 0 0;
+  }
+  to {
+    rotate: 4deg;
+    translate: 0 -6px;
+  }
+}
+@media (max-width: 600px) {
+  .envelope-screen {
+    padding: 72px 24px 72px;
+  }
+  .envelope-lantern-left {
+    width: 44px;
+    left: 7%;
+    top: -35px;
+  }
+  .envelope-lantern-right {
+    width: 35px;
+    right: 7%;
+    top: -45px;
+  }
+  .envelope-stage {
+    margin-top: 62px;
+    margin-bottom: 50px;
+  }
+  .envelope-fan {
+    width: 135px;
+    height: 145px;
+  }
+  .envelope-fan-left {
+    left: -25px;
+    bottom: -10px;
+  }
+  .envelope-fan-right {
+    right: -25px;
+    top: -95px;
+  }
+  .envelope-seal {
+    width: 50px;
+    height: 50px;
+  }
+  .envelope-seal span {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+  .envelope-cloud {
+    width: 130px;
+  }
+}
+@media (max-height: 700px) and (min-width: 601px) {
+  .envelope-intro h1 {
+    font-size: 56px;
+  }
+  .envelope-stage {
+    width: 350px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .envelope-lantern,
+  .envelope-cloud,
+  .envelope-fan {
+    animation: none;
+  }
+  .envelope-open-button,
+  .is-opening .envelope-flap {
+    transition: none;
+  }
+}
