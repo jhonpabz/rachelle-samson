@@ -186,7 +186,6 @@ export const dressCode = {
     { name: "Imperial Red", hex: "#C8102E" },
     { name: "Luminous Gold", hex: "#FFD700" },
     { name: "Deep Crimson", hex: "#8B0000" },
-    { name: "Warm Cream", hex: "#FFFDF7" },
   ] as ColorSwatch[],
   avoidNote:
     "To complement the vibrant and joyful spirit of the celebration, female guests are kindly requested to refrain from wearing plain black or all-white attire and are encouraged to wear red or red with a touch of gold. Male guests are kindly requested to refrain from wearing red, as this color is reserved for the groom.",

@@ -1,6 +1,7 @@
 import { SectionCard } from './SectionCard';
 import { dressCode } from '../data/weddingData';
 import { CloudMotif } from './decorations/CloudMotif';
+import { AttireIllustrations } from './decorations/AttireIllustrations';
 
 /**
  * Dress Code — Parchment theme with visual color palette.
@@ -46,6 +47,8 @@ export function DressCode() {
             </div>
           ))}
         </div>
+
+        <AttireIllustrations />
 
         <div
           className="rounded-lg bg-imperial-red/5 border border-imperial-red/20 px-4 py-3 text-sm text-ink-muted leading-relaxed text-center"
