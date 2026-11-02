@@ -6,6 +6,7 @@ const musicUrl = `${import.meta.env.BASE_URL}assets/music/Illegal Medley (Piano 
 export function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
   const [repeat, setRepeat] = useState(true);
   const [error, setError] = useState('');
 
@@ -31,7 +32,10 @@ export function MusicPlayer() {
         src={musicUrl}
         preload="none"
         loop={repeat}
-        onPlaying={() => setPlaying(true)}
+        onPlaying={() => {
+          setPlaying(true);
+          setHasPlayed(true);
+        }}
         onPause={() => setPlaying(false)}
         onWaiting={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
@@ -63,10 +67,11 @@ export function MusicPlayer() {
         </button>
         <button
           type="button"
-          className="music-control h-14! w-14!"
+          className={`music-control music-play-button h-14! w-14!${hasPlayed ? '' : ' music-play-invite'}`}
           aria-label={playing ? 'Pause music' : 'Play music'}
           onClick={togglePlayback}
         >
+          {!hasPlayed && <span className="music-play-hint" aria-hidden="true">Tap to play <span>↓</span></span>}
           {playing ? <Pause size={32} fill="currentColor" aria-hidden="true" /> : <Play size={32} fill="currentColor" aria-hidden="true" />}
         </button>
         <button
