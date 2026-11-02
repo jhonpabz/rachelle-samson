@@ -35,7 +35,18 @@
 }
 .music-control:hover { background: rgb(255 215 0 / 12%); transform: scale(1.06); }
 .music-control:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
-.music-play-button { position: relative; }
+.music-play-button {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 56px;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  min-height: 56px;
+  padding: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
 .music-play-invite {
   background: rgb(255 215 0 / 14%);
   box-shadow: 0 0 22px rgb(255 215 0 / 18%);

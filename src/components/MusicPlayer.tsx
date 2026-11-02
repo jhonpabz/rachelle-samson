@@ -67,7 +67,7 @@ export function MusicPlayer() {
         </button>
         <button
           type="button"
-          className={`music-control music-play-button h-14! w-14!${hasPlayed ? '' : ' music-play-invite'}`}
+          className={`music-control music-play-button${hasPlayed ? '' : ' music-play-invite'}`}
           aria-label={playing ? 'Pause music' : 'Play music'}
           onClick={togglePlayback}
         >
