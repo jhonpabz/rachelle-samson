@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { couple } from '../data/weddingData';
 import { Lantern } from './decorations/Lantern';
 import { CloudMotif } from './decorations/CloudMotif';
+import { WeddingMusic } from './WeddingMusic';
 
 /**
  * Hero Banner — Deep Imperial Red theme.
@@ -146,6 +147,7 @@ export function Hero() {
         >
           {couple.tagline}
         </motion.p>
+        <WeddingMusic />
       </div>
     </section>
   );
