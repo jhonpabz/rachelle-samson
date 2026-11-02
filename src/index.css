@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+.music-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(3px, 1vw, 6px);
+  height: 90px;
+  margin-bottom: 8px;
+}
+.music-waveform span {
+  width: 5px;
+  height: var(--bar-height);
+  border-radius: 999px;
+  background: currentColor;
+  transform: scaleY(0.12);
+  animation: music-wave var(--bar-duration) ease-in-out var(--bar-delay) infinite alternate;
+  animation-play-state: paused;
+  transition: opacity 200ms;
+  opacity: 0.45;
+}
+.music-waveform[data-playing='true'] span {
+  animation-play-state: running;
+  opacity: 1;
+}
+.music-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 200ms, transform 200ms;
+}
+.music-control:hover { background: rgb(255 215 0 / 12%); transform: scale(1.06); }
+.music-control:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@keyframes music-wave {
+  0% { transform: scaleY(0.12); }
+  45% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .music-waveform span { animation: none; transform: scaleY(0.3); }
+  .music-control { transition: none; }
+}
+
 /* Visible, continuous vector motion with an explicit pause control. */
 .countdown-lantern {
   transform-origin: top center;
