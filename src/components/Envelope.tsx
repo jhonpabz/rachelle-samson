@@ -1,4 +1,4 @@
-﻿import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { couple } from "../data/weddingData";
 
@@ -90,8 +90,8 @@ export function Envelope({ onOpen }: EnvelopeProps) {
               </span>
               <span className="letter-kicker">Together with our families</span>
               <span className="letter-names">
-                {couple.bride.split(" ")[0]} <i>&</i>{" "}
-                {couple.groom.split(" ")[0]}
+                {couple.groom.split(" ")[0]} <i>&</i>{" "}
+                {couple.bride.split(" ")[0]}
               </span>
               <span className="letter-date">{couple.date}</span>
             </motion.span>
@@ -142,8 +142,8 @@ export function Envelope({ onOpen }: EnvelopeProps) {
         </p>
       </motion.div>
       <p className="envelope-footer">
-        WITH LOVE <span aria-hidden="true">◆</span> {couple.bride.split(" ")[0]}{" "}
-        & {couple.groom.split(" ")[0]}
+        WITH LOVE <span aria-hidden="true">◆</span> {couple.groom.split(" ")[0]}{" "}
+        & {couple.bride.split(" ")[0]}
       </p>
     </motion.div>
   );

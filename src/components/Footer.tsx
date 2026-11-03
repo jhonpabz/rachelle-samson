@@ -19,7 +19,7 @@ export function Footer() {
           囍
         </p>
         <p className="font-display text-sm tracking-[0.25em] text-gold/90 uppercase mb-2">
-          {couple.bride} & {couple.groom}
+          {couple.groom} & {couple.bride}
         </p>
         <p className="text-xs text-gold/55 tracking-wide">
           {couple.dateEnglish} · With love & gratitude
