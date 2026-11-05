@@ -95,7 +95,7 @@ export function Hero() {
 
         {/* Names — gold serif on red */}
         <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold text-gold leading-[1.15] mb-2"
+          className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl font-normal text-gold leading-[1.25] mb-2"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          className="font-display text-xl sm:text-2xl text-gold/70 tracking-widest my-3"
+          className="font-display text-xl sm:text-2xl italic text-gold/70 tracking-widest my-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -114,7 +114,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold text-gold leading-[1.15] mb-8"
+          className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl font-normal text-gold leading-[1.25] mb-8"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
